@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: #ffffff;
+}
+
+.container {
+  position: relative;
+  max-width: 423px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 45px 40px;
+}
+.container.reading .read {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.container.reading .read .loader {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+@keyframes animloader {
+  0% {
+    box-shadow: -72px 0 #FFF inset;
+  }
+  100% {
+    box-shadow: 48px 0 #FFF inset;
+  }
+}
+.container .read {
+  display: none;
+}
+.container.day {
+  background: linear-gradient(167.44deg, #29B2DD 0%, #33AADD 47.38%, #2DC8EA 100%);
+}
+.container.day.reading .read {
+  background: linear-gradient(167.44deg, #29B2DD 0%, #33AADD 47.38%, #2DC8EA 100%);
+}
+.container.day .bg {
+  background: rgba(16, 64, 132, 0.3);
+}
+.container.day .hours .hours-item.active {
+  background-color: rgba(72, 153, 227, 0.2);
+  border-color: #54C1FF;
+}
+.container.night {
+  background: linear-gradient(167.44deg, #08244F 0%, #134CB5 47.38%, #0B42AB 100%);
+}
+.container.night.reading .read {
+  background: linear-gradient(167.44deg, #08244F 0%, #134CB5 47.38%, #0B42AB 100%);
+}
+.container.night .bg {
+  background: rgba(0, 16, 38, 0.3);
+}
+.container.night .hours .hours-item.active {
+  background-color: rgba(37, 102, 163, 0.2);
+  border-color: #0044AB;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .select-block {
+  display: flex;
+  align-items: center;
+}
+.header .select-block svg {
+  margin-right: 12px;
+}
+.header .select-block .select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+}
+.header .select-block .select option {
+  color: #08244F;
+  background: #FFFFFF;
+}
+
+.right svg {
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .icon {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+.main .temp {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 76px;
+}
+.main .text {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}
+.main .other {
+  width: 100%;
+  margin-top: 31px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 12px 16px;
+}
+.main .other .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+}
+.main .other .row:not(:first-child) {
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.today {
+  margin-top: 20px;
+  padding: 12px 15px;
+  border-radius: 20px;
+}
+.today .title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.today .title .title-name {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.today .title .title-value {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.today .hour-block {
+  margin-top: 12px;
+  overflow-x: auto;
+}
+.today .hour-block::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.today .hour-block::-webkit-scrollbar-track {
+  background: transparent;
+}
+.today .hour-block::-webkit-scrollbar-thumb {
+  background: #0044AB;
+  border-radius: 10px;
+}
+.today .hour-block::-webkit-scrollbar-thumb:hover {
+  background: #54C1FF;
+}
+.today .hours {
+  display: flex;
+  gap: 12px;
+}
+.today .hours .hours-item {
+  min-width: 70px;
+  height: 155px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background: transparent;
+  padding: 13px 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.today .hours .hours-item .tem {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #FFFFFF;
+  text-shadow: -2px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.today .hours .hours-item .icon-hour {
+  display: block;
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
+}
+
+.next-day {
+  margin-top: 5px;
+}
+.next-day .day-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.next-day .day-item .day-name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.next-day .day-item img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.next-day .day-item .term {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+.next-day .day-item .term span {
+  color: rgba(255, 255, 255, 0.5);
+  padding-left: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+.modal.open {
+  display: flex;
+}
+.modal .modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #000000;
+}
+.modal .modal-content .close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.modal .modal-content h3 {
+  font-size: 18px;
+  text-align: center;
+}
+.modal .modal-content .input {
+  margin-top: 15px;
+}
+.modal .modal-content .input .label {
+  position: relative;
+}
+.modal .modal-content .input .label input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: 1px solid #134CB5;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.modal .modal-content .input .label svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 15px;
+  fill: #9f9f9f;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+.modal .modal-content .input .result-list .list-item {
+  padding: 7px 0;
+  border-bottom: 1px solid #bbbbbb;
+  cursor: pointer;
+}
+.modal .modal-content .selected-list {
+  margin-top: 20px;
+}
+.modal .modal-content .selected-list .selected-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 5px;
+}
+.modal .modal-content .selected-list .selected-item .name {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  flex: 1;
+}
+.modal .modal-content .selected-list .selected-item .svg {
+  display: block;
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  cursor: pointer;
+}
+.modal .modal-content .selected-list .selected-item .svg.ok {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.7099 7.20986C18.617 7.11613 18.5064 7.04174 18.3845 6.99097C18.2627 6.9402 18.132 6.91406 17.9999 6.91406C17.8679 6.91406 17.7372 6.9402 17.6154 6.99097C17.4935 7.04174 17.3829 7.11613 17.29 7.20986L9.83995 14.6699L6.70995 11.5299C6.61343 11.4366 6.49949 11.3633 6.37463 11.3141C6.24978 11.2649 6.11645 11.2408 5.98227 11.2431C5.84809 11.2454 5.71568 11.2741 5.5926 11.3276C5.46953 11.3811 5.35819 11.4583 5.26495 11.5549C5.17171 11.6514 5.0984 11.7653 5.04919 11.8902C4.99999 12.015 4.97586 12.1484 4.97818 12.2825C4.9805 12.4167 5.00923 12.5491 5.06272 12.6722C5.11622 12.7953 5.19343 12.9066 5.28995 12.9999L9.12995 16.8399C9.22291 16.9336 9.33351 17.008 9.45537 17.0588C9.57723 17.1095 9.70794 17.1357 9.83995 17.1357C9.97196 17.1357 10.1027 17.1095 10.2245 17.0588C10.3464 17.008 10.457 16.9336 10.55 16.8399L18.7099 8.67986C18.8115 8.58622 18.8925 8.47257 18.9479 8.34607C19.0033 8.21957 19.0319 8.08296 19.0319 7.94486C19.0319 7.80676 19.0033 7.67015 18.9479 7.54365C18.8925 7.41715 18.8115 7.3035 18.7099 7.20986Z' fill='%23ececec'/%3E%3C/svg%3E");
+}
+.modal .modal-content .selected-list .selected-item .svg.ok.selected {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.7099 7.20986C18.617 7.11613 18.5064 7.04174 18.3845 6.99097C18.2627 6.9402 18.132 6.91406 17.9999 6.91406C17.8679 6.91406 17.7372 6.9402 17.6154 6.99097C17.4935 7.04174 17.3829 7.11613 17.29 7.20986L9.83995 14.6699L6.70995 11.5299C6.61343 11.4366 6.49949 11.3633 6.37463 11.3141C6.24978 11.2649 6.11645 11.2408 5.98227 11.2431C5.84809 11.2454 5.71568 11.2741 5.5926 11.3276C5.46953 11.3811 5.35819 11.4583 5.26495 11.5549C5.17171 11.6514 5.0984 11.7653 5.04919 11.8902C4.99999 12.015 4.97586 12.1484 4.97818 12.2825C4.9805 12.4167 5.00923 12.5491 5.06272 12.6722C5.11622 12.7953 5.19343 12.9066 5.28995 12.9999L9.12995 16.8399C9.22291 16.9336 9.33351 17.008 9.45537 17.0588C9.57723 17.1095 9.70794 17.1357 9.83995 17.1357C9.97196 17.1357 10.1027 17.1095 10.2245 17.0588C10.3464 17.008 10.457 16.9336 10.55 16.8399L18.7099 8.67986C18.8115 8.58622 18.8925 8.47257 18.9479 8.34607C19.0033 8.21957 19.0319 8.08296 19.0319 7.94486C19.0319 7.80676 19.0033 7.67015 18.9479 7.54365C18.8925 7.41715 18.8115 7.3035 18.7099 7.20986Z' fill='%2302d302'/%3E%3C/svg%3E");
+}
+.modal .modal-content .selected-list .selected-item .svg.delete {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 18C10.2652 18 10.5196 17.8946 10.7071 17.7071C10.8946 17.5196 11 17.2652 11 17V11C11 10.7348 10.8946 10.4804 10.7071 10.2929C10.5196 10.1054 10.2652 10 10 10C9.73478 10 9.48043 10.1054 9.29289 10.2929C9.10536 10.4804 9 10.7348 9 11V17C9 17.2652 9.10536 17.5196 9.29289 17.7071C9.48043 17.8946 9.73478 18 10 18ZM20 6H16V5C16 4.20435 15.6839 3.44129 15.1213 2.87868C14.5587 2.31607 13.7956 2 13 2H11C10.2044 2 9.44129 2.31607 8.87868 2.87868C8.31607 3.44129 8 4.20435 8 5V6H4C3.73478 6 3.48043 6.10536 3.29289 6.29289C3.10536 6.48043 3 6.73478 3 7C3 7.26522 3.10536 7.51957 3.29289 7.70711C3.48043 7.89464 3.73478 8 4 8H5V19C5 19.7956 5.31607 20.5587 5.87868 21.1213C6.44129 21.6839 7.20435 22 8 22H16C16.7956 22 17.5587 21.6839 18.1213 21.1213C18.6839 20.5587 19 19.7956 19 19V8H20C20.2652 8 20.5196 7.89464 20.7071 7.70711C20.8946 7.51957 21 7.26522 21 7C21 6.73478 20.8946 6.48043 20.7071 6.29289C20.5196 6.10536 20.2652 6 20 6ZM10 5C10 4.73478 10.1054 4.48043 10.2929 4.29289C10.4804 4.10536 10.7348 4 11 4H13C13.2652 4 13.5196 4.10536 13.7071 4.29289C13.8946 4.48043 14 4.73478 14 5V6H10V5ZM17 19C17 19.2652 16.8946 19.5196 16.7071 19.7071C16.5196 19.8946 16.2652 20 16 20H8C7.73478 20 7.48043 19.8946 7.29289 19.7071C7.10536 19.5196 7 19.2652 7 19V8H17V19ZM14 18C14.2652 18 14.5196 17.8946 14.7071 17.7071C14.8946 17.5196 15 17.2652 15 17V11C15 10.7348 14.8946 10.4804 14.7071 10.2929C14.5196 10.1054 14.2652 10 14 10C13.7348 10 13.4804 10.1054 13.2929 10.2929C13.1054 10.4804 13 10.7348 13 11V17C13 17.2652 13.1054 17.5196 13.2929 17.7071C13.4804 17.8946 13.7348 18 14 18Z' fill='red'/%3E%3C/svg%3E");
+}
+
+/*# sourceMappingURL=style.css.map */
